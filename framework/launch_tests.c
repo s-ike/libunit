@@ -25,10 +25,12 @@ static int
 	}
 	else if (signed_result == FAILURE)
 		printf("%s%s%s\n", CRL_RED, PUT_KO ,CRL_DEFAULT);
-	else if (signed_result == SIGSEGV)
+	else if (result == SIGSEGV)
 		printf("%s%s%s\n", CRL_RED, PUT_SEGV ,CRL_DEFAULT);
-	else if (signed_result == SIGBUS)
+	else if (result == SIGBUS)
 		printf("%s%s%s\n", CRL_RED, PUT_BUSE ,CRL_DEFAULT);
+	else if (result == FORK_FAIL)
+		printf("%s%s%s\n", CRL_RED, "Fork failed" ,CRL_DEFAULT);
 	else
 		printf("%s%s%s\n", CRL_WHITE, PUT_UNKNOWN ,CRL_DEFAULT);
 	return (FAILURE);
