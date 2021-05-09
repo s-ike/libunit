@@ -1,8 +1,5 @@
 #include "libunit.h"
 
-/**
- * @return
- */
 int	launch_tests(t_unit_test **testlist)
 {
 	t_unit_test	*current;

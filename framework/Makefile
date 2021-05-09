@@ -6,9 +6,7 @@ SRCS		:= error.c \
 				load_test.c
 OBJS		:= $(SRCS:.c=.o)
 
-DEBUG_SRCS	:= $(SRCS)
-DEBUG_SRCS	+= debug/main.c
-DEBUG_OBJS	:= $(DEBUG_SRCS:.c=.o)
+DEBUG_SRCS	:= debug/main.c
 
 CC			:= gcc
 CFLAGS		:= -Wall -Wextra -Werror
@@ -38,7 +36,7 @@ fclean:		clean
 
 re:			fclean $(NAME)
 
-debug:		$(DEBUG_OBJS)
-			$(CC) $(DEBUG) $(DEBUG_OBJS) -o $(DEBUG_NAME)
+debug:		$(OBJS) $(DEBUG_SRCS)
+			$(CC) $(DEBUG) $(OBJS) $(DEBUG_SRCS) -D DEBUG -o $(DEBUG_NAME)
 
 .PHONY:		all clean fclean re debug
