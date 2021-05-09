@@ -17,22 +17,22 @@ static int
 
 	signed_result = result;
 	printf("%5s%s%s", "> ", testname, " : ");
-	// TODO: signal
 	if (signed_result == SUCCESS)
 	{
-		printf("%s%s%s\n", CRL_GREEN, PUT_OK ,CRL_DEFAULT);
+		printf("%s%s", CRL_GREEN, PUT_OK ,CRL_DEFAULT);
 		return (SUCCESS);
 	}
 	else if (signed_result == FAILURE)
-		printf("%s%s%s\n", CRL_RED, PUT_KO ,CRL_DEFAULT);
+		printf("%s%s", CRL_RED, PUT_KO);
 	else if (result == SIGSEGV)
-		printf("%s%s%s\n", CRL_RED, PUT_SEGV ,CRL_DEFAULT);
+		printf("%s%s", CRL_RED, PUT_SEGV);
 	else if (result == SIGBUS)
-		printf("%s%s%s\n", CRL_RED, PUT_BUSE ,CRL_DEFAULT);
+		printf("%s%s", CRL_RED, PUT_BUSE);
 	else if (result == FORK_FAIL)
-		printf("%s%s%s\n", CRL_RED, "Fork failed" ,CRL_DEFAULT);
+		printf("%s%s", CRL_WHITE, "Fork failed");
 	else
-		printf("%s%s%s\n", CRL_WHITE, PUT_UNKNOWN ,CRL_DEFAULT);
+		printf("%s%s", CRL_WHITE, PUT_UNKNOWN);
+	printf("%s\n", CRL_DEFAULT);
 	return (FAILURE);
 }
 
