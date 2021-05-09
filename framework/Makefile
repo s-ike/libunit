@@ -1,8 +1,14 @@
 NAME		:= libunit.a
+DEBUG_NAME	:= debug.out
 
-SRCS		:= load_test.c \
-				launch_tests.c
+SRCS		:= error.c \
+				launch_tests.c \
+				load_test.c
 OBJS		:= $(SRCS:.c=.o)
+
+DEBUG_SRCS	:= $(SRCS)
+DEBUG_SRCS	+= debug/main.c
+DEBUG_OBJS	:= $(DEBUG_SRCS:.c=.o)
 
 CC			:= gcc
 CFLAGS		:= -Wall -Wextra -Werror
@@ -24,10 +30,15 @@ $(NAME):	$(OBJS)
 
 clean:
 			$(RM) $(OBJS)
+			$(RM) $(DEBUG_OBJS)
 
 fclean:		clean
 			$(RM) $(NAME)
+			$(RM) $(DEBUG_NAME)
 
 re:			fclean $(NAME)
 
-.PHONY:		all clean fclean re
+debug:		$(DEBUG_OBJS)
+			$(CC) $(DEBUG) $(DEBUG_OBJS) -o $(DEBUG_NAME)
+
+.PHONY:		all clean fclean re debug
