@@ -61,6 +61,7 @@ static int
 	int			successes;
 
 	current = *testlist;
+	ret = 0;
 	test_cnt = 0;
 	successes = 0;
 	while (current)
