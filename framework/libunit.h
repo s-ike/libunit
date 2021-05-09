@@ -20,6 +20,8 @@ typedef struct s_unit_test
 void	load_test(
 			t_unit_test **testlist, const char *testname, int (*test)(void));
 int		launch_tests(t_unit_test **testlist);
+/* clear_test.c */
+void	clear_test(t_unit_test **testlist);
 /* error.c */
 void	put_error(const char *msg);
 

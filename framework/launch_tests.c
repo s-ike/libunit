@@ -18,6 +18,6 @@ int	launch_tests(t_unit_test **testlist)
 		printf("%s\n", current->testname);
 		current = current->next;
 	}
-	// TODO; testlist解放
+	clear_test(testlist);
 	return (ret);
 }

@@ -1,7 +1,8 @@
 NAME		:= libunit.a
 DEBUG_NAME	:= debug.out
 
-SRCS		:= error.c \
+SRCS		:= clear_test.c \
+				error.c \
 				launch_tests.c \
 				load_test.c
 OBJS		:= $(SRCS:.c=.o)
@@ -15,7 +16,7 @@ DEBUG		:= -g
 AR			:= ar
 ARFLAGS		:= rc
 
-RM			:= rm -f
+RM			:= rm -rf
 
 
 .c.o:
@@ -28,7 +29,7 @@ $(NAME):	$(OBJS)
 
 clean:
 			$(RM) $(OBJS)
-			$(RM) $(DEBUG_OBJS)
+			$(RM) $(DEBUG_NAME).dSYM
 
 fclean:		clean
 			$(RM) $(NAME)
