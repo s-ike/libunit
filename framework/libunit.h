@@ -10,7 +10,7 @@
 # define SUCCESS 0
 # define FAILURE -1
 
-# define UNKNOWN SIGUSR1
+# define FORK_FAIL SIGUSR1
 
 # define CRL_RED "\x1b[31m"
 # define CRL_GREEN "\x1b[32m"
