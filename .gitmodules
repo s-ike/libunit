@@ -1,3 +1,0 @@
-[submodule "real-tests"]
-	path = real-tests
-	url = https://github.com/s-ike/libft

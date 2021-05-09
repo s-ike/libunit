@@ -5,14 +5,14 @@ int	main(void)
 {
 	int	result;
 
+	result = SUCCESS;
 	printf("\n");
 	printf("*********************************\n");
 	printf("** 42 - Unit Tests ****\n");
 	printf("*********************************\n");
-	result = strlen_launcher();
-	if (result == FAILURE)
-		;	// next_launcher();
-	else
-		;	// result = next_launcher();
+	result += strlen_launcher();
+	result += next_launcher();
+	if (result != SUCCESS)
+		return (FAILURE);
 	return (result);
 }
