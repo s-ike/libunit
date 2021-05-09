@@ -1,1 +1,1 @@
-`git clone --recursive https://github.com/s-ike/libunit.git`
+`git clone https://github.com/s-ike/libunit.git`
