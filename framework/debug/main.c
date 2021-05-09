@@ -14,9 +14,14 @@ static void
 }
 #endif
 
-int test_framework(void)
+int test_ok(void)
 {
 	return (SUCCESS);
+}
+
+int test_ko(void)
+{
+	return (FAILURE);
 }
 
 int	main(void)
@@ -26,7 +31,8 @@ int	main(void)
 
 	testlist = NULL;
 	puts("Framework:");
-	load_test(&testlist, "Framework test", &test_framework);
+	load_test(&testlist, "Framework-ok-test", &test_ok);
+	load_test(&testlist, "Framework-ko-test", &test_ko);
 	ret = launch_tests(&testlist);
 	exec_leaks();
 	return(ret);

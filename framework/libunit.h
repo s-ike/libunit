@@ -10,6 +10,23 @@
 # define SUCCESS 0
 # define FAILURE -1
 
+# define UNKNOWN SIGUSR1
+
+# define CRL_RED "\x1b[31m"
+# define CRL_GREEN "\x1b[32m"
+# define CRL_YELLOW "\x1b[33m"
+# define CRL_BLUE "\x1b[34m"
+# define CRL_MAGENTA "\x1b[35m"
+# define CRL_CYAN "\x1b[36m"
+# define CRL_WHITE "\x1b[37m"
+# define CRL_DEFAULT "\x1b[39m"
+
+# define PUT_OK "[OK]"
+# define PUT_KO "[KO]"
+# define PUT_SEGV "[SEGV]"
+# define PUT_BUSE "[BUSE]"
+# define PUT_UNKNOWN "[UNKNOWN]"
+
 typedef struct s_unit_test
 {
 	const char			*testname;
