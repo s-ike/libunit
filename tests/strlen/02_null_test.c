@@ -1,4 +1,5 @@
-#include "libft.h"
+// #include "libft.h"
+#include <string.h>
 
 int	null_test(void)
 {

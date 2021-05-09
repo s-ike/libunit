@@ -1,9 +1,11 @@
+#include "strlen.h"
 
 // LinuxではSEGV、MacではBus error
 size_t	ft_strlen(const char *s)
 {
-	char *s = "test";
-	s[0] = '0';
+	(void)s;
+	char *str = "test";
+	str[0] = '0';
 	return -1;
 }
 
