@@ -3,9 +3,12 @@
 size_t	ft_strlen(const char *s)
 {
 	size_t	len;
+	char	*str = "test";
 
-	len = 1;
-	while (s[len])
+	(void)s;
+	str[0] = '0';
+	len = 0;
+	while (str[len])
 		len++;
 	return (len);
 }
