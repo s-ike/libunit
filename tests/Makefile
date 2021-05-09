@@ -3,8 +3,9 @@ NAME		:= test
 SRCS		:=  main.c \
 				strlen/*.c
 
-REALDIR		:= ../real-tests
-REALPATH	:= $(REALDIR)/libft.a
+REAL_DIR	:= ../real_tests/
+REAL_SRCS	:= ft_strlen.c
+REAL_SRCS	:= $(addprefix $(REAL_DIR), $(REAL_SRCS))
 
 CC			:= gcc
 # CFLAGS		:= -Wall -Wextra -Werror	# いらないかも
@@ -20,15 +21,12 @@ C_GREEN		:= "\x1b[32m"
 
 all:		$(NAME)
 
-$(NAME):	$(LIBPATH) $(REALPATH)
-			$(CC) $(CFLAGS) $(DEBUG) $(SRCS) $(LIBPATH) -I$(LIBDIR) -I$(REALDIR) $(REALPATH) -o $(NAME)
+$(NAME):	$(LIBPATH)
+			$(CC) $(CFLAGS) $(DEBUG) $(REAL_SRCS) $(SRCS) $(LIBPATH) -I$(LIBDIR) -I$(REAL_DIR) -o $(NAME)
 			./$(NAME)
 
 $(LIBPATH):	## framework
 			$(MAKE) -C $(LIBDIR)
-
-$(REALPATH):	## libft
-			$(MAKE) -C $(REALDIR)
 
 clean:
 			$(RM) $(NAME).dSYM

@@ -1,5 +1,5 @@
-// #include "libft.h"
 #include <string.h>
+#include "strlen_tests.h"
 
 int	null_test(void)
 {
