@@ -25,6 +25,10 @@ static int
 	}
 	else if (signed_result == FAILURE)
 		printf("%s%s%s\n", CRL_RED, PUT_KO ,CRL_DEFAULT);
+	else if (signed_result == SIGSEGV)
+		printf("%s%s%s\n", CRL_RED, PUT_SEGV ,CRL_DEFAULT);
+	else if (signed_result == SIGBUS)
+		printf("%s%s%s\n", CRL_RED, PUT_BUSE ,CRL_DEFAULT);
 	else
 		printf("%s%s%s\n", CRL_WHITE, PUT_UNKNOWN ,CRL_DEFAULT);
 	return (FAILURE);
@@ -37,7 +41,7 @@ static int
 	int		status;
 	int		exit_code;
 
-	exit_code = UNKNOWN;
+	exit_code = FORK_FAIL;
 	pid = fork();
 	if (pid < 0)
 		return (exit_code);	// TODO: fork fail
