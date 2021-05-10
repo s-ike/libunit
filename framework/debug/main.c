@@ -14,12 +14,14 @@ static void
 }
 #endif
 
-int test_ok(void)
+int
+	test_ok(void)
 {
 	return (SUCCESS);
 }
 
-int test_ko(void)
+int
+	test_ko(void)
 {
 	return (FAILURE);
 }

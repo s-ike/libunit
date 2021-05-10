@@ -19,7 +19,7 @@ static int
 	printf("%5s%s%s", "> ", testname, " : ");
 	if (signed_result == SUCCESS)
 	{
-		printf("%s%s%s\n", CRL_GREEN, PUT_OK ,CRL_DEFAULT);
+		printf("%s%s%s\n", CRL_GREEN, PUT_OK, CRL_DEFAULT);
 		return (SUCCESS);
 	}
 	else if (signed_result == FAILURE)
@@ -46,13 +46,13 @@ static int
 	exit_code = FORK_FAIL;
 	pid = fork();
 	if (pid < 0)
-		return (exit_code);	// TODO: fork fail
+		return (exit_code);
 	else if (pid == 0)
 		exit(testlist->test());
 	else
 		wait(&status);
 	if (WIFEXITED(status))
-		exit_code = WEXITSTATUS(status); //子プロセスの終了コード
+		exit_code = WEXITSTATUS(status);
 	else if (WIFSIGNALED(status))
 		return (WTERMSIG(status));
 	return (exit_code);

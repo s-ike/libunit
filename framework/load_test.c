@@ -5,7 +5,8 @@ static t_unit_test
 {
 	t_unit_test	*new;
 
-	if (!(new = malloc(sizeof(t_unit_test))))
+	new = malloc(sizeof(t_unit_test));
+	if (!new)
 		return (NULL);
 	new->testname = testname;
 	new->test = test;
