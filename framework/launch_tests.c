@@ -19,7 +19,7 @@ static int
 	printf("%5s%s%s", "> ", testname, " : ");
 	if (signed_result == SUCCESS)
 	{
-		printf("%s%s", CRL_GREEN, PUT_OK ,CRL_DEFAULT);
+		printf("%s%s%s\n", CRL_GREEN, PUT_OK ,CRL_DEFAULT);
 		return (SUCCESS);
 	}
 	else if (signed_result == FAILURE)

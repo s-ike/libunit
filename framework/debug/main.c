@@ -27,13 +27,16 @@ int test_ko(void)
 int	main(void)
 {
 	t_unit_test	*testlist;
-	int			ret;
+	int			result;
 
 	testlist = NULL;
+	result = 0;
 	puts("Framework:");
 	load_test(&testlist, "Framework-ok-test", &test_ok);
 	load_test(&testlist, "Framework-ko-test", &test_ko);
-	ret = launch_tests(&testlist);
+	result = launch_tests(&testlist);
 	exec_leaks();
-	return(ret);
+	if (result)
+		return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }
