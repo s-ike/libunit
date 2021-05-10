@@ -1,7 +1,7 @@
 #include <string.h>
 #include "strlen_tests.h"
 
-int	basic_test(void)
+int	strlen_basic_test(void)
 {
 	if (ft_strlen("Hello") == strlen("Hello"))
 		return (0);

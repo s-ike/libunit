@@ -1,7 +1,7 @@
-#include "strlen_tests.h"
+#include "memchr_tests.h"
 #include "libunit.h"
 
-int	strlen_launcher(void)
+int	memchr_launcher(void)
 {
 	t_unit_test	*testlist;
 

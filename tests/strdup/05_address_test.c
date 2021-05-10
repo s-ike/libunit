@@ -1,6 +1,6 @@
 #include "strdup_tests.h"
 
-int	address_test(void)
+int	strdup_address_test(void)
 {
 	const char	*s1 = "Hello, 42!";
 	char		*s2;

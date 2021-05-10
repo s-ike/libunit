@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "atoi_tests.h"
 
-int	null_test(void)
+int	atoi_null_test(void)
 {
 	if (ft_atoi(NULL))
 		return (-1);

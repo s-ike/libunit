@@ -1,7 +1,7 @@
 #include <string.h>
-#include "strlen_tests.h"
+#include "memchr_tests.h"
 
-int	strlen_null_test(void)
+int	memchr_null_test(void)
 {
 	if (ft_strlen(NULL))
 		return (-1);

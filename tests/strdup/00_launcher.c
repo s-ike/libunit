@@ -7,10 +7,10 @@ int	strdup_launcher(void)
 
 	testlist = NULL;
 	puts("STRDUP:");
-	load_test(&testlist, "Basic test", &basic_test);
-	load_test(&testlist, "NULL test", &null_test);
-	load_test(&testlist, "Bigger string test", &bigger_str_test);
-	load_test(&testlist, "Empty string test", &empty_str_test);
-	load_test(&testlist, "Address test", &address_test);
+	load_test(&testlist, "Basic test", &strdup_basic_test);
+	load_test(&testlist, "NULL test", &strdup_null_test);
+	load_test(&testlist, "Bigger string test", &strdup_bigger_str_test);
+	load_test(&testlist, "Empty string test", &strdup_empty_str_test);
+	load_test(&testlist, "Address test", &strdup_address_test);
 	return(launch_tests(&testlist));
 }
