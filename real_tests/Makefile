@@ -1,7 +1,6 @@
 NAME		:= libft.a
 
-SRCS		:= ft_strlen.c \
-				ft_atoi.c \
+SRCS		:= ft_atoi.c \
 				ft_strdup.c
 
 OBJS		:= $(SRCS:.c=.o)
