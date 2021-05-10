@@ -4,10 +4,10 @@
 # include "real_tests.h"
 
 int	atoi_launcher(void);
-int	basic_test(void);
-int	null_test(void);
-int	intmax_test(void);
-int ascii_test(void);
-int ovf_test(void);
+int	atoi_basic_test(void);
+int	atoi_null_test(void);
+int	atoi_intmax_test(void);
+int atoi_ascii_test(void);
+int atoi_ovf_test(void);
 
 #endif

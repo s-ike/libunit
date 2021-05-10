@@ -1,6 +1,9 @@
 NAME		:= libft.a
 
-SRCS		:= ft_strlen.c
+SRCS		:= ft_strlen.c \
+				ft_atoi.c \
+				ft_strdup.c
+
 OBJS		:= $(SRCS:.c=.o)
 
 REGULAR_SRCS	:= $(SRCS)

@@ -1,6 +1,6 @@
 #include "strdup_tests.h"
 
-int	null_test(void)
+int	strdup_null_test(void)
 {
 	const char	*s1 = NULL;
 	char		*s2;

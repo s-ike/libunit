@@ -1,6 +1,6 @@
 #include "strdup_tests.h"
 
-int	empty_str_test(void)
+int	strdup_empty_str_test(void)
 {
 	const char	*s1 = "";
 	char		*s2;

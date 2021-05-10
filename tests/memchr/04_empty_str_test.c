@@ -1,7 +1,7 @@
 #include <string.h>
-#include "strlen_tests.h"
+#include "memchr_tests.h"
 
-int	strlen_empty_str_test(void)
+int	memchr_empty_str_test(void)
 {
 	if (ft_strlen("") == strlen(""))
 		return (0);
