@@ -7,7 +7,7 @@ int	bigger_str_test(void)
 	int			ret;
 
 	s2 = ft_strdup(s1);
-	ret = (strcmp(s1, s2);
+	ret = strcmp(s1, s2);
 	free(s2);
 	if (ret)
 		return (-1);
