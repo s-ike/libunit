@@ -11,6 +11,7 @@
 # define FAILURE -1
 
 # define FORK_FAIL SIGUSR1
+# define UNKNOWN SIGUSR2
 
 # define CRL_RED "\x1b[31m"
 # define CRL_GREEN "\x1b[32m"
@@ -26,6 +27,7 @@
 # define PUT_SEGV "[SEGV]"
 # define PUT_BUSE "[BUSE]"
 # define PUT_UNKNOWN "[UNKNOWN]"
+# define PUT_FORKFAIL "Fork failed"
 
 typedef struct s_unit_test
 {

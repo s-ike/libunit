@@ -13,23 +13,20 @@ static void
 static int
 	put_result(const char *testname, int result)
 {
-	int8_t	signed_result;
-
-	signed_result = result;
 	printf("%5s%s%s", "> ", testname, " : ");
-	if (signed_result == SUCCESS)
+	if (result == SUCCESS)
 	{
 		printf("%s%s%s\n", CRL_GREEN, PUT_OK, CRL_DEFAULT);
 		return (SUCCESS);
 	}
-	else if (signed_result == FAILURE)
+	else if (result == FAILURE)
 		printf("%s%s", CRL_RED, PUT_KO);
 	else if (result == SIGSEGV)
 		printf("%s%s", CRL_RED, PUT_SEGV);
 	else if (result == SIGBUS)
 		printf("%s%s", CRL_RED, PUT_BUSE);
 	else if (result == FORK_FAIL)
-		printf("%s%s", CRL_WHITE, "Fork failed");
+		printf("%s%s", CRL_WHITE, PUT_FORKFAIL);
 	else
 		printf("%s%s", CRL_WHITE, PUT_UNKNOWN);
 	printf("%s\n", CRL_DEFAULT);
@@ -41,21 +38,23 @@ static int
 {
 	pid_t	pid;
 	int		status;
-	int		exit_code;
 
-	exit_code = FORK_FAIL;
 	pid = fork();
 	if (pid < 0)
-		return (exit_code);
+		return (FORK_FAIL);
 	else if (pid == 0)
 		exit(testlist->test());
 	else
 		wait(&status);
 	if (WIFEXITED(status))
-		exit_code = WEXITSTATUS(status);
+	{
+		if (WEXITSTATUS(status) == 255)
+			return (FAILURE);
+		return (WEXITSTATUS(status));
+	}
 	else if (WIFSIGNALED(status))
 		return (WTERMSIG(status));
-	return (exit_code);
+	return (UNKNOWN);
 }
 
 static int
