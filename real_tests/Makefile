@@ -7,6 +7,18 @@ SRCS		:= ft_strlen.c \
 
 OBJS		:= $(SRCS:.c=.o)
 
+REGULAR_SRCS	:= $(SRCS)
+REGULAR_SRCS	+= ft_strlen.c
+REGULAR_OBJS	:= $(REGULAR_SRCS:.c=.o)
+
+KO_SRCS		:= $(SRCS)
+KO_SRCS		+= ft_strlen_ko.c
+KO_OBJS		+= $(KO_SRCS:.c=.o)
+
+BUSE_SRCS	:= $(SRCS)
+BUSE_SRCS	+= ft_strlen_buse.c
+BUSE_OBJS	:= $(BUSE_SRCS:.c=.o)
+
 CC			:= gcc
 CFLAGS		:= -Wall -Wextra -Werror
 DEBUG		:=
@@ -22,8 +34,8 @@ RM			:= rm -rf
 
 all:		$(NAME)
 
-$(NAME):	$(OBJS)
-			$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+$(NAME):	$(REGULAR_OBJS)
+			$(AR) $(ARFLAGS) $(NAME) $(REGULAR_OBJS)
 
 clean:
 			$(RM) $(OBJS)
@@ -33,4 +45,10 @@ fclean:		clean
 
 re:			fclean $(NAME)
 
-.PHONY:		all clean fclean re
+ko:			fclean $(KO_OBJS)
+			$(AR) $(ARFLAGS) $(NAME) $(KO_OBJS)
+
+buse:		fclean $(BUSE_OBJS)
+			$(AR) $(ARFLAGS) $(NAME) $(BUSE_OBJS)
+
+.PHONY:		all clean fclean re ko buse

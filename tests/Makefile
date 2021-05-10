@@ -50,4 +50,16 @@ fclean:		clean
 
 re:			fclean $(NAME)
 
-.PHONY:		all clean fclean re test
+ko:			fclean $(LIBPATH)
+			$(MAKE) ko -C $(REAL_DIR)
+			$(CC) $(CFLAGS) $(DEBUG) $(REAL_SRCS) $(SRCS) $(LIBPATH) -I$(LIBDIR) -I$(REAL_DIR) -o $(NAME)
+			@echo $(C_GREEN)"=== make test DONE ==="$(C_DEFAULT)
+			./$(NAME)
+
+buse:		fclean $(LIBPATH)
+			$(MAKE) buse -C $(REAL_DIR)
+			$(CC) $(CFLAGS) $(DEBUG) $(REAL_SRCS) $(SRCS) $(LIBPATH) -I$(LIBDIR) -I$(REAL_DIR) -o $(NAME)
+			@echo $(C_GREEN)"=== make test DONE ==="$(C_DEFAULT)
+			./$(NAME)
+
+.PHONY:		all clean fclean re test ko buse
