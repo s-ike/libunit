@@ -3,7 +3,9 @@
 static void
 	put_num_of_successes(const int successes, const int test_cnt)
 {
-	if (successes == test_cnt)
+	if (!test_cnt)
+		printf("%s", CRL_YELLOW);
+	else if (successes == test_cnt)
 		printf("%s", CRL_GREEN);
 	else
 		printf("%s", CRL_RED);
