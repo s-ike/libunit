@@ -34,8 +34,8 @@ int	main(void)
 	testlist = NULL;
 	result = 0;
 	puts("Framework:");
-	load_test(&testlist, "Framework-ok-test", &test_ok);
 	load_test(&testlist, "Framework-ko-test", &test_ko);
+	load_test(&testlist, "Framework-ok-test", &test_ok);
 	result = launch_tests(&testlist);
 	exec_leaks();
 	if (result)

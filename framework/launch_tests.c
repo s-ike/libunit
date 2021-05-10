@@ -80,7 +80,9 @@ static int
 			successes++;
 	}
 	put_num_of_successes(successes, test_cnt);
-	return (ret);
+	if (successes == test_cnt)
+		return (SUCCESS);
+	return (FAILURE);
 }
 
 int
