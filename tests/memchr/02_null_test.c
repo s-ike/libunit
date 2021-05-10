@@ -3,7 +3,7 @@
 
 int	memchr_null_test(void)
 {
-	if (ft_strlen(NULL))
+	if (ft_memchr(NULL, 0, 1))
 		return (-1);
 	else
 		return (0);

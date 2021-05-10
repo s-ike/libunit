@@ -1,4 +1,4 @@
-#include <string.h>
+
 #include "strlen_tests.h"
 
 int	strlen_empty_str_test(void)

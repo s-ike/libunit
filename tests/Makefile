@@ -3,7 +3,8 @@ NAME		:= test
 SRCS		:=  main.c \
 				strlen/*.c \
 				atoi/*.c \
-				strdup/*.c
+				strdup/*.c \
+				memchr/*.c
 
 REAL_DIR	:= ../real_tests/
 REAL_SRCS	:= libft.a

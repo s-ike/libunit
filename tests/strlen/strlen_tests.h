@@ -1,6 +1,7 @@
 #ifndef STRLEN_TEST
 # define STRLEN_TEST
 
+# include <string.h>
 # include "real_tests.h"
 
 int	strlen_launcher(void);
