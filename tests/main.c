@@ -1,4 +1,6 @@
 #include "strlen/strlen_tests.h"
+#include "atoi/atoi_tests.h"
+#include "strdup/strdup_tests.h"
 #include "libunit.h"
 
 int	main(void)
@@ -11,6 +13,8 @@ int	main(void)
 	printf("** 42 - Unit Tests ****\n");
 	printf("*********************************\n");
 	result += strlen_launcher();
+	result += atoi_launcher();
+	result += strdup_launcher();
 	// result += next_launcher();
 	if (result)
 		return (EXIT_FAILURE);
