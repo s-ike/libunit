@@ -1,4 +1,5 @@
 NAME		:= test
+REPORT_NAME	:= test_report
 
 SRCS		:= main.c \
 				atoi/00_launcher.c \
@@ -73,6 +74,7 @@ clean:
 
 fclean:		clean
 			$(RM) $(NAME)
+			$(RM) $(REPORT_NAME)
 			$(MAKE) fclean -C $(LIBUNIT_DIR)
 			$(MAKE) fclean -C $(LIBFT_DIR)
 			$(MAKE) fclean -C $(KO_DIR)

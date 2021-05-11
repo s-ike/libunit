@@ -47,6 +47,7 @@ clean:
 			$(RM) $(KO_OBJS)
 			$(RM) $(BUSE_OBJS)
 			$(RM) $(TIMEO_OBJS)
+			$(RM) $(ABRT_OBJS)
 
 fclean:		clean
 			$(RM) $(NAME)
