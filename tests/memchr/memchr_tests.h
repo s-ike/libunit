@@ -2,7 +2,7 @@
 # define MEMCHR_TEST
 
 #include <string.h>
-# include "real_tests.h"
+# include "libft.h"
 
 int	memchr_launcher(void);
 int	memchr_basic_test(void);

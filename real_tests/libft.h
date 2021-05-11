@@ -1,5 +1,5 @@
-#ifndef REAL_TESTS
-# define REAL_TESTS
+#ifndef LIBFT_H
+# define LIBFT_H
 
 #include <stdlib.h>
 #include <stdlib.h>

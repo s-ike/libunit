@@ -1,7 +1,7 @@
 #ifndef ATOI_TEST
 # define ATOI_TEST
 
-# include "real_tests.h"
+# include "libft.h"
 
 int	atoi_launcher(void);
 int	atoi_basic_test(void);

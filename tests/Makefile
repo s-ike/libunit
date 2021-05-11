@@ -28,9 +28,13 @@ SRCS		:= main.c \
 				strlen/04_empty_str_test.c
 OBJS		:= $(SRCS:.c=.o)
 
-REAL_DIR	:= ../real_tests
-REAL_SRCS	:= libft.a
-REAL_SRCS	:= $(REAL_DIR)/$(REAL_SRCS)
+LIBFT_DIR	:= ../libft
+LIBFT_PATH	:= libft.a
+LIBFT_PATH	:= $(LIBFT_DIR)/$(LIBFT_PATH)
+
+KO_DIR		:= ../real_tests
+KO_PATH		:= libft.a
+KO_PATH		:= $(KO_DIR)/$(KO_PATH)
 
 CC			:= gcc
 CFLAGS		:= -Wall -Wextra -Werror
@@ -48,41 +52,45 @@ C_DEFAULT	:= "\x1b[39m"
 all:		$(NAME)
 
 .c.o:
-			$(CC) $(CFLAGS) $(DEBUG) -I$(LIBUNIT_DIR) -I$(REAL_DIR) -c $< -o $@
+			$(CC) $(CFLAGS) $(DEBUG) -I$(LIBUNIT_DIR) -I$(LIBFT_DIR) -c $< -o $@
 
-$(NAME):	$(LIBUNIT_PATH) $(REAL_SRCS) $(OBJS)
-			$(CC) $(CFLAGS) $(DEBUG) $(LIBUNIT_PATH) $(REAL_SRCS) $(OBJS) -o $(NAME)
+$(NAME):	$(LIBUNIT_PATH) $(LIBFT_PATH) $(OBJS)
+			$(CC) $(CFLAGS) $(DEBUG) $(LIBUNIT_PATH) $(LIBFT_PATH) $(OBJS) -o $(NAME)
 			@echo $(C_GREEN)"=== make test DONE ==="$(C_DEFAULT)
 			./$(NAME)
 
 $(LIBUNIT_PATH):	## framework
 			$(MAKE) -C $(LIBUNIT_DIR)
 
-$(REAL_SRCS):
-			$(MAKE) -C $(REAL_DIR)
+$(LIBFT_PATH):
+			$(MAKE) -C $(LIBFT_DIR)
 
 clean:
 			$(RM) $(OBJS)
 			$(MAKE) clean -C $(LIBUNIT_DIR)
-			$(MAKE) clean -C $(REAL_DIR)
+			$(MAKE) clean -C $(LIBFT_DIR)
+			$(MAKE) clean -C $(KO_DIR)
 
 fclean:		clean
 			$(RM) $(NAME)
 			$(MAKE) fclean -C $(LIBUNIT_DIR)
-			$(MAKE) fclean -C $(REAL_DIR)
+			$(MAKE) fclean -C $(LIBFT_DIR)
+			$(MAKE) fclean -C $(KO_DIR)
 			@echo $(C_GREEN)"=== fclean DONE ==="$(C_DEFAULT)
 
 re:			fclean $(NAME)
 
-ko:			fclean $(LIBUNIT_PATH) $(OBJS)
-			$(MAKE) ko -C $(REAL_DIR)
-			$(CC) $(CFLAGS) $(DEBUG) $(REAL_SRCS) $(OBJS) $(LIBUNIT_PATH) -I$(LIBUNIT_DIR) -I$(REAL_DIR) -o $(NAME)
+ko:			$(LIBUNIT_PATH) $(OBJS)
+			$(MAKE) fclean -C $(KO_DIR)
+			$(MAKE) ko -C $(KO_DIR)
+			$(CC) $(CFLAGS) $(DEBUG) $(KO_PATH) $(LIBUNIT_PATH) $(OBJS) -o $(NAME)
 			@echo $(C_GREEN)"=== make test DONE ==="$(C_DEFAULT)
 			./$(NAME)
 
-buse:		fclean $(LIBUNIT_PATH) $(OBJS)
-			$(MAKE) buse -C $(REAL_DIR)
-			$(CC) $(CFLAGS) $(DEBUG) $(REAL_SRCS) $(OBJS) $(LIBUNIT_PATH) -I$(LIBUNIT_DIR) -I$(REAL_DIR) -o $(NAME)
+buse:		$(LIBUNIT_PATH) $(OBJS)
+			$(MAKE) fclean -C $(KO_DIR)
+			$(MAKE) buse -C $(KO_DIR)
+			$(CC) $(CFLAGS) $(DEBUG) $(KO_PATH) $(LIBUNIT_PATH) $(OBJS) -o $(NAME)
 			@echo $(C_GREEN)"=== make test DONE ==="$(C_DEFAULT)
 			./$(NAME)
 

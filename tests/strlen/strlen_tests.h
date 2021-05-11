@@ -2,7 +2,7 @@
 # define STRLEN_TEST
 
 # include <string.h>
-# include "real_tests.h"
+# include "libft.h"
 
 int	strlen_launcher(void);
 int	strlen_basic_test(void);
