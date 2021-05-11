@@ -4,8 +4,6 @@ SRCS		:= ft_atoi.c \
 				ft_strdup.c \
 				ft_memchr.c
 
-OBJS		:= $(SRCS:.c=.o)
-
 REGULAR_SRCS	:= $(SRCS)
 REGULAR_SRCS	+= ft_strlen.c
 REGULAR_OBJS	:= $(REGULAR_SRCS:.c=.o)
@@ -37,7 +35,9 @@ $(NAME):	$(REGULAR_OBJS)
 			$(AR) $(ARFLAGS) $(NAME) $(REGULAR_OBJS)
 
 clean:
-			$(RM) $(OBJS)
+			$(RM) $(REGULAR_OBJS)
+			$(RM) $(KO_OBJS)
+			$(RM) $(BUSE_OBJS)
 
 fclean:		clean
 			$(RM) $(NAME)

@@ -1,23 +1,44 @@
 NAME		:= test
 
-SRCS		:=  main.c \
-				strlen/*.c \
-				atoi/*.c \
-				strdup/*.c \
-				memchr/*.c
+SRCS		:= main.c \
+				atoi/00_launcher.c \
+				atoi/01_basic_test.c \
+				atoi/02_null_test.c \
+				atoi/03_intmax_test.c \
+				atoi/04_ascii_test.c \
+				atoi/05_ovf_test.c \
+				\
+				memchr/00_launcher.c \
+				memchr/01_basic_test.c \
+				memchr/02_null_test.c \
+				memchr/03_bigger_str_test.c \
+				memchr/04_empty_str_test.c \
+				\
+				strdup/00_launcher.c \
+				strdup/01_basic_test.c \
+				strdup/02_null_test.c \
+				strdup/03_bigger_str_test.c \
+				strdup/04_empty_str_test.c \
+				strdup/05_address_test.c \
+				\
+				strlen/00_launcher.c \
+				strlen/01_basic_test.c \
+				strlen/02_null_test.c \
+				strlen/03_bigger_str_test.c \
+				strlen/04_empty_str_test.c
+OBJS		:= $(SRCS:.c=.o)
 
-REAL_DIR	:= ../real_tests/
+REAL_DIR	:= ../real_tests
 REAL_SRCS	:= libft.a
-REAL_SRCS	:= $(addprefix $(REAL_DIR), $(REAL_SRCS))
+REAL_SRCS	:= $(REAL_DIR)/$(REAL_SRCS)
 
 CC			:= gcc
-CFLAGS		:=
-# CFLAGS		+= -Wall -Wextra -Werror
+CFLAGS		:= -Wall -Wextra -Werror
 DEBUG		:= -g
 
-LIB			:= libunit.a
-LIBDIR		:= ../framework
-LIBPATH		:= $(LIBDIR)/$(LIB)
+LIBUNIT		:= libunit.a
+LIBUNIT_DIR	:= ../framework
+LIBUNIT_PATH	:= $(LIBUNIT_DIR)/$(LIBUNIT)
 
 RM			:= rm -rf
 C_GREEN		:= "\x1b[32m"
@@ -26,39 +47,42 @@ C_DEFAULT	:= "\x1b[39m"
 
 all:		$(NAME)
 
-$(NAME):	$(LIBPATH) $(REAL_SRCS)
-			$(CC) $(CFLAGS) $(DEBUG) $(REAL_SRCS) $(SRCS) $(LIBPATH) -I$(LIBDIR) -I$(REAL_DIR) -o $(NAME)
+.c.o:
+			$(CC) $(CFLAGS) $(DEBUG) -I$(LIBUNIT_DIR) -I$(REAL_DIR) -c $< -o $@
+
+$(NAME):	$(LIBUNIT_PATH) $(REAL_SRCS) $(OBJS)
+			$(CC) $(CFLAGS) $(DEBUG) $(LIBUNIT_PATH) $(REAL_SRCS) $(OBJS) -o $(NAME)
 			@echo $(C_GREEN)"=== make test DONE ==="$(C_DEFAULT)
 			./$(NAME)
 
-$(LIBPATH):	## framework
-			$(MAKE) -C $(LIBDIR)
+$(LIBUNIT_PATH):	## framework
+			$(MAKE) -C $(LIBUNIT_DIR)
 
 $(REAL_SRCS):
 			$(MAKE) -C $(REAL_DIR)
 
 clean:
-			$(RM) $(NAME).dSYM
-			$(MAKE) clean -C $(LIBDIR)
+			$(RM) $(OBJS)
+			$(MAKE) clean -C $(LIBUNIT_DIR)
 			$(MAKE) clean -C $(REAL_DIR)
 
 fclean:		clean
 			$(RM) $(NAME)
-			$(MAKE) fclean -C $(LIBDIR)
+			$(MAKE) fclean -C $(LIBUNIT_DIR)
 			$(MAKE) fclean -C $(REAL_DIR)
 			@echo $(C_GREEN)"=== fclean DONE ==="$(C_DEFAULT)
 
 re:			fclean $(NAME)
 
-ko:			fclean $(LIBPATH)
+ko:			fclean $(LIBUNIT_PATH) $(OBJS)
 			$(MAKE) ko -C $(REAL_DIR)
-			$(CC) $(CFLAGS) $(DEBUG) $(REAL_SRCS) $(SRCS) $(LIBPATH) -I$(LIBDIR) -I$(REAL_DIR) -o $(NAME)
+			$(CC) $(CFLAGS) $(DEBUG) $(REAL_SRCS) $(OBJS) $(LIBUNIT_PATH) -I$(LIBUNIT_DIR) -I$(REAL_DIR) -o $(NAME)
 			@echo $(C_GREEN)"=== make test DONE ==="$(C_DEFAULT)
 			./$(NAME)
 
-buse:		fclean $(LIBPATH)
+buse:		fclean $(LIBUNIT_PATH) $(OBJS)
 			$(MAKE) buse -C $(REAL_DIR)
-			$(CC) $(CFLAGS) $(DEBUG) $(REAL_SRCS) $(SRCS) $(LIBPATH) -I$(LIBDIR) -I$(REAL_DIR) -o $(NAME)
+			$(CC) $(CFLAGS) $(DEBUG) $(REAL_SRCS) $(OBJS) $(LIBUNIT_PATH) -I$(LIBUNIT_DIR) -I$(REAL_DIR) -o $(NAME)
 			@echo $(C_GREEN)"=== make test DONE ==="$(C_DEFAULT)
 			./$(NAME)
 
