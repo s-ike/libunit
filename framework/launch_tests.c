@@ -27,6 +27,8 @@ static int
 		printf("%s%s", CRL_RED, PUT_SEGV);
 	else if (result == SIGBUS)
 		printf("%s%s", CRL_RED, PUT_BUSE);
+	else if (result == SIGALRM)
+		printf("%s%s", CRL_RED, PUT_TIMEOUT);
 	else if (result == FORK_FAIL)
 		printf("%s%s", CRL_WHITE, PUT_FORKFAIL);
 	else
@@ -45,7 +47,10 @@ static int
 	if (pid < 0)
 		return (FORK_FAIL);
 	else if (pid == 0)
+	{
+		alarm(TIME_LIMIT);
 		exit(testlist->test());
+	}
 	else
 		wait(&status);
 	if (WIFEXITED(status))
