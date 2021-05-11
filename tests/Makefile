@@ -94,6 +94,13 @@ buse:		$(LIBUNIT_PATH) $(OBJS)
 			@echo $(C_GREEN)"=== make test DONE ==="$(C_DEFAULT)
 			./$(NAME)
 
+abrt:		$(LIBUNIT_PATH) $(OBJS)
+			$(MAKE) fclean -C $(KO_DIR)
+			$(MAKE) abrt -C $(KO_DIR)
+			$(CC) $(CFLAGS) $(DEBUG) $(KO_PATH) $(LIBUNIT_PATH) $(OBJS) -o $(NAME)
+			@echo $(C_GREEN)"=== make test DONE ==="$(C_DEFAULT)
+			./$(NAME)
+
 timeo:		$(LIBUNIT_PATH) $(OBJS)
 			$(MAKE) fclean -C $(KO_DIR)
 			$(MAKE) timeo -C $(KO_DIR)
@@ -101,4 +108,4 @@ timeo:		$(LIBUNIT_PATH) $(OBJS)
 			@echo $(C_GREEN)"=== make test DONE ==="$(C_DEFAULT)
 			./$(NAME)
 
-.PHONY:		all clean fclean re test ko buse
+.PHONY:		all clean fclean re test ko buse abrt timeo

@@ -31,6 +31,8 @@ static int
 		double_puts_string(g_fp, CRL_RED, PUT_SEGV, "");
 	else if (result == SIGBUS)
 		double_puts_string(g_fp, CRL_RED, PUT_BUSE, "");
+	else if (result == SIGABRT)
+		double_puts_string(g_fp, CRL_RED, PUT_ABRT, "");
 	else if (result == SIGALRM)
 		double_puts_string(g_fp, CRL_RED, PUT_TIMEOUT, "");
 	else if (result == FORK_FAIL)

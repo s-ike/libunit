@@ -1,6 +1,7 @@
 #include "libunit.h"
 
-void	start_tests(void)
+void
+	start_tests(void)
 {
 	printf("\n");
 	printf("%s", CRL_CYAN);
@@ -12,7 +13,8 @@ void	start_tests(void)
 	g_fp = fopen("test_report", "w");
 }
 
-void	end_tests(void)
+void
+	end_tests(void)
 {
 	fclose(g_fp);
 	printf("\n");
@@ -23,7 +25,8 @@ void	end_tests(void)
 }
 
 void
-	double_puts_string(FILE *fp, const char *clr, const char *s1, const char *s2)
+	double_puts_string(
+		FILE *fp, const char *clr, const char *s1, const char *s2)
 {
 	fprintf(fp, "%s%s", s1, s2);
 	if (clr)
@@ -33,7 +36,8 @@ void
 	fflush(fp);
 }
 
-void	double_puts_num(FILE *fp, const int n1, const int n2, const char *s)
+void
+	double_puts_num(FILE *fp, const int n1, const int n2, const char *s)
 {
 	fprintf(fp, "%d/%d %s", n1, n2, s);
 	printf("%d/%d %s", n1, n2, s);

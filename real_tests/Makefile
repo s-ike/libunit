@@ -20,6 +20,10 @@ TIMEO_SRCS	:= $(SRCS)
 TIMEO_SRCS	+= ft_strlen_timeout.c
 TIMEO_OBJS	:= $(TIMEO_SRCS:.c=.o)
 
+ABRT_SRCS	:= $(SRCS)
+ABRT_SRCS	+= ft_strlen_abrt.c
+ABRT_OBJS	:= $(ABRT_SRCS:.c=.o)
+
 CC			:= gcc
 CFLAGS		:= -Wall -Wextra -Werror
 DEBUG		:=
@@ -55,7 +59,10 @@ ko:			fclean $(KO_OBJS)
 buse:		fclean $(BUSE_OBJS)
 			$(AR) $(ARFLAGS) $(NAME) $(BUSE_OBJS)
 
+abrt:		fclean $(ABRT_OBJS)
+			$(AR) $(ARFLAGS) $(NAME) $(ABRT_OBJS)
+
 timeo:		fclean $(TIMEO_OBJS)
 			$(AR) $(ARFLAGS) $(NAME) $(TIMEO_OBJS)
 
-.PHONY:		all clean fclean re ko buse
+.PHONY:		all clean fclean re ko buse abrt timeo

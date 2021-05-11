@@ -4,7 +4,7 @@
 #include "memchr/memchr_tests.h"
 #include "libunit.h"
 
-int			main(void)
+int	main(void)
 {
 	int	result;
 

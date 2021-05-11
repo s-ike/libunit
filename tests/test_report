@@ -1,9 +1,9 @@
 STRLEN:
-   > Basic test : [OK]
-   > NULL test : [SEGV]
-   > Bigger string test : [OK]
-   > Empty string test : [OK]
-3/4 tests checked
+   > Basic test : [UNKNOWN]
+   > NULL test : [UNKNOWN]
+   > Bigger string test : [UNKNOWN]
+   > Empty string test : [UNKNOWN]
+0/4 tests checked
 ATOI:
    > Basic test : [OK]
    > NULL test : [SEGV]
@@ -12,12 +12,12 @@ ATOI:
    > OVF test : [OK]
 4/5 tests checked
 STRDUP:
-   > Basic test : [OK]
-   > NULL test : [SEGV]
-   > Bigger string test : [OK]
-   > Empty string test : [OK]
-   > Address test : [OK]
-4/5 tests checked
+   > Basic test : [UNKNOWN]
+   > NULL test : [UNKNOWN]
+   > Bigger string test : [UNKNOWN]
+   > Empty string test : [UNKNOWN]
+   > Address test : [UNKNOWN]
+0/5 tests checked
 MEMCHR:
    > Basic test : [OK]
    > NULL test : [SEGV]

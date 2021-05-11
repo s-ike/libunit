@@ -29,6 +29,7 @@
 # define PUT_KO "[KO]"
 # define PUT_SEGV "[SEGV]"
 # define PUT_BUSE "[BUSE]"
+# define PUT_ABRT = "[ABORT]"
 # define PUT_TIMEOUT "[TIMEOUT]"
 # define PUT_UNKNOWN "[UNKNOWN]"
 # define PUT_FORKFAIL "Fork failed"
