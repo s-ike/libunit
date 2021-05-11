@@ -13,6 +13,8 @@
 # define FORK_FAIL SIGUSR1
 # define UNKNOWN SIGUSR2
 
+# define TIME_LIMIT 2
+
 # define CRL_RED "\x1b[31m"
 # define CRL_GREEN "\x1b[32m"
 # define CRL_YELLOW "\x1b[33m"
@@ -26,6 +28,7 @@
 # define PUT_KO "[KO]"
 # define PUT_SEGV "[SEGV]"
 # define PUT_BUSE "[BUSE]"
+# define PUT_TIMEOUT "[TIMEOUT]"
 # define PUT_UNKNOWN "[UNKNOWN]"
 # define PUT_FORKFAIL "Fork failed"
 

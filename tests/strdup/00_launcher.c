@@ -12,5 +12,5 @@ int	strdup_launcher(void)
 	load_test(&testlist, "Bigger string test", &strdup_bigger_str_test);
 	load_test(&testlist, "Empty string test", &strdup_empty_str_test);
 	load_test(&testlist, "Address test", &strdup_address_test);
-	return(launch_tests(&testlist));
+	return (launch_tests(&testlist));
 }

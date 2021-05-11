@@ -1,8 +1,8 @@
-#ifndef STRLEN_TEST
-# define STRLEN_TEST
+#ifndef STRLEN_TESTS_H
+# define STRLEN_TESTS_H
 
 # include <string.h>
-# include "real_tests.h"
+# include "libft.h"
 
 int	strlen_launcher(void);
 int	strlen_basic_test(void);

@@ -1,4 +1,3 @@
-#include <string.h>
 #include "memchr_tests.h"
 
 int	memchr_null_test(void)

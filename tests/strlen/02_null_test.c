@@ -1,4 +1,3 @@
-
 #include "strlen_tests.h"
 
 int	strlen_null_test(void)

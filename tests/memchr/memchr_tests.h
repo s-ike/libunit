@@ -1,8 +1,8 @@
-#ifndef MEMCHR_TEST
-# define MEMCHR_TEST
+#ifndef MEMCHR_TESTS_H
+# define MEMCHR_TESTS_H
 
-#include <string.h>
-# include "real_tests.h"
+# include <string.h>
+# include "libft.h"
 
 int	memchr_launcher(void);
 int	memchr_basic_test(void);

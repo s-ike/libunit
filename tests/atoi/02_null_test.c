@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include "atoi_tests.h"
 
 int	atoi_null_test(void)

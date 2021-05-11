@@ -11,5 +11,5 @@ int	strlen_launcher(void)
 	load_test(&testlist, "NULL test", &strlen_null_test);
 	load_test(&testlist, "Bigger string test", &strlen_bigger_str_test);
 	load_test(&testlist, "Empty string test", &strlen_empty_str_test);
-	return(launch_tests(&testlist));
+	return (launch_tests(&testlist));
 }

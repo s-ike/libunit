@@ -1,7 +1,7 @@
-#ifndef STRDUP_TEST
-# define STRDUP_TEST
+#ifndef STRDUP_TESTS_H
+# define STRDUP_TESTS_H
 
-# include "real_tests.h"
+# include "libft.h"
 # include <string.h>
 
 int	strdup_launcher(void);

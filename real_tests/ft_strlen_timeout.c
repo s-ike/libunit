@@ -1,15 +1,13 @@
 #include "libft.h"
+#include <unistd.h>
 
 size_t	ft_strlen(const char *s)
 {
 	size_t	len;
-	char	*str;
 
-	(void)s;
-	str = "test";
-	str[0] = '0';
 	len = 0;
-	while (str[len])
+	sleep(10);
+	while (s[len])
 		len++;
-	return (len);
+	return (len + 1);
 }

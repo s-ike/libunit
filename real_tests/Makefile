@@ -4,8 +4,6 @@ SRCS		:= ft_atoi.c \
 				ft_strdup.c \
 				ft_memchr.c
 
-OBJS		:= $(SRCS:.c=.o)
-
 REGULAR_SRCS	:= $(SRCS)
 REGULAR_SRCS	+= ft_strlen.c
 REGULAR_OBJS	:= $(REGULAR_SRCS:.c=.o)
@@ -17,6 +15,10 @@ KO_OBJS		+= $(KO_SRCS:.c=.o)
 BUSE_SRCS	:= $(SRCS)
 BUSE_SRCS	+= ft_strlen_buse.c
 BUSE_OBJS	:= $(BUSE_SRCS:.c=.o)
+
+TIMEO_SRCS	:= $(SRCS)
+TIMEO_SRCS	+= ft_strlen_timeout.c
+TIMEO_OBJS	:= $(TIMEO_SRCS:.c=.o)
 
 CC			:= gcc
 CFLAGS		:= -Wall -Wextra -Werror
@@ -37,7 +39,10 @@ $(NAME):	$(REGULAR_OBJS)
 			$(AR) $(ARFLAGS) $(NAME) $(REGULAR_OBJS)
 
 clean:
-			$(RM) $(OBJS)
+			$(RM) $(REGULAR_OBJS)
+			$(RM) $(KO_OBJS)
+			$(RM) $(BUSE_OBJS)
+			$(RM) $(TIMEO_OBJS)
 
 fclean:		clean
 			$(RM) $(NAME)
@@ -49,5 +54,8 @@ ko:			fclean $(KO_OBJS)
 
 buse:		fclean $(BUSE_OBJS)
 			$(AR) $(ARFLAGS) $(NAME) $(BUSE_OBJS)
+
+timeo:		fclean $(TIMEO_OBJS)
+			$(AR) $(ARFLAGS) $(NAME) $(TIMEO_OBJS)
 
 .PHONY:		all clean fclean re ko buse

@@ -12,5 +12,5 @@ int	atoi_launcher(void)
 	load_test(&testlist, "INT_MAX test", &atoi_intmax_test);
 	load_test(&testlist, "ASCII test", &atoi_ascii_test);
 	load_test(&testlist, "OVF test", &atoi_ovf_test);
-	return(launch_tests(&testlist));
+	return (launch_tests(&testlist));
 }
