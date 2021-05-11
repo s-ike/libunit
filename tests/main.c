@@ -4,7 +4,7 @@
 #include "memchr/memchr_tests.h"
 #include "libunit.h"
 
-void	put_header(void)
+static void	put_header(void)
 {
 	printf("\n");
 	printf("*********************************\n");
@@ -23,7 +23,6 @@ int	main(void)
 	result += atoi_launcher();
 	result += strdup_launcher();
 	result += memchr_launcher();
-	// result += next_launcher();
 	if (result)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);

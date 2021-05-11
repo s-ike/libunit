@@ -7,14 +7,14 @@ static int	ft_isspace(int c)
 	return (0);
 }
 
-int		ft_isdigit(int c)
+static int	ft_isdigit(int c)
 {
 	if ('0' <= c && c <= '9')
 		return (1);
 	return (0);
 }
 
-int			ft_atoi(char *str)
+int	ft_atoi(char *str)
 {
 	unsigned long long	num;
 	int					neg;
@@ -31,8 +31,13 @@ int			ft_atoi(char *str)
 	}
 	while (ft_isdigit(*str))
 	{
-		if (num >> 60 || (num = num * 10 + *str++ - '0') >> 63)
-			return (num = neg == -1 ? LONG_MIN : LONG_MAX);
+		num = (num * 10) + (*str++ - '0');
+		if (num >> 63)
+		{
+			if (neg == -1)
+				return ((int)LONG_MIN);
+			return ((int)LONG_MAX);
+		}
 	}
 	return (neg * num);
 }

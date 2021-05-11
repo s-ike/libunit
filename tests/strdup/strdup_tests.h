@@ -1,5 +1,5 @@
-#ifndef STRDUP_TEST
-# define STRDUP_TEST
+#ifndef STRDUP_TESTS_H
+# define STRDUP_TESTS_H
 
 # include "libft.h"
 # include <string.h>

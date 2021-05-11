@@ -1,5 +1,3 @@
-#include <stdlib.h>
-#include <limits.h>
 #include "atoi_tests.h"
 
 int	atoi_ascii_test(void)

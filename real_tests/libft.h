@@ -1,8 +1,7 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-#include <stdlib.h>
-#include <stdlib.h>
+# include <stdlib.h>
 
 size_t	ft_strlen(const char *s);
 size_t	ft_strlen_ko(const char *s);

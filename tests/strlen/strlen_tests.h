@@ -1,5 +1,5 @@
-#ifndef STRLEN_TEST
-# define STRLEN_TEST
+#ifndef STRLEN_TESTS_H
+# define STRLEN_TESTS_H
 
 # include <string.h>
 # include "libft.h"

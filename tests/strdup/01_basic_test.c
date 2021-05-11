@@ -2,7 +2,6 @@
 
 int	strdup_basic_test(void)
 {
-
 	const char	*s1 = "Hello";
 	char		*s2;
 	int			ret;
