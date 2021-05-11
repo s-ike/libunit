@@ -1,16 +1,5 @@
 NAME		:= test
 
-<<<<<<< HEAD
-SRCS		:=	main.c \
-				strlen/*.c \
-				atoi/*.c \
-				strdup/*.c \
-				memchr/*.c
-
-REAL_DIR	:= ../real_tests/
-REAL_SRCS	:= libft.a
-REAL_SRCS	:= $(addprefix $(REAL_DIR), $(REAL_SRCS))
-=======
 SRCS		:= main.c \
 				atoi/00_launcher.c \
 				atoi/01_basic_test.c \
@@ -46,7 +35,6 @@ LIBFT_PATH	:= $(LIBFT_DIR)/$(LIBFT_PATH)
 KO_DIR		:= ../real_tests
 KO_PATH		:= libft.a
 KO_PATH		:= $(KO_DIR)/$(KO_PATH)
->>>>>>> 1110d89847695d7a3668c9d9b4d8993c7849c81b
 
 CC			:= gcc
 CFLAGS		:= -Wall -Wextra -Werror
