@@ -1,6 +1,6 @@
 NAME		:= test
 
-SRCS		:=  main.c \
+SRCS		:=	main.c \
 				strlen/*.c \
 				atoi/*.c \
 				strdup/*.c \

@@ -7,10 +7,11 @@
 void	put_header(void)
 {
 	printf("\n");
+	printf("%s", CRL_CYAN);
 	printf("*********************************\n");
 	printf("**      42 - Unit Tests      ****\n");
 	printf("*********************************\n");
-	printf("\n");
+	printf("%s", CRL_DEFAULT);
 }
 
 int	main(void)
