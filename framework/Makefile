@@ -4,7 +4,9 @@ DEBUG_NAME	:= debug.out
 SRCS		:= clear_test.c \
 				error.c \
 				launch_tests.c \
-				load_test.c
+				load_test.c \
+				file_manager.c
+
 OBJS		:= $(SRCS:.c=.o)
 
 DEBUG_SRCS	:= debug/main.c

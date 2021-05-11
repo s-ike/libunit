@@ -9,31 +9,35 @@ static void
 		printf("%s", CRL_GREEN);
 	else
 		printf("%s", CRL_RED);
-	printf("%d/%d tests checked%s\n", successes, test_cnt, CRL_DEFAULT);
+	double_puts_num(g_fp, successes, test_cnt, "tests checked");
+	double_puts_string(g_fp, NULL, "\n", "");
+	printf("%s", CRL_DEFAULT);
 }
 
 static int
 	put_result(const char *testname, int result)
 {
-	printf("%5s%s%s", "> ", testname, " : ");
+	double_puts_string(g_fp, NULL, "   > ", testname);
+	double_puts_string(g_fp, NULL, " : ", "");
 	if (result == SUCCESS)
 	{
-		printf("%s%s%s\n", CRL_GREEN, PUT_OK, CRL_DEFAULT);
+		double_puts_string(g_fp, CRL_GREEN, PUT_OK, "");
+		double_puts_string(g_fp, NULL, "\n", "");
 		return (SUCCESS);
 	}
 	else if (result == FAILURE)
-		printf("%s%s", CRL_RED, PUT_KO);
+		double_puts_string(g_fp, CRL_RED, PUT_KO, "");
 	else if (result == SIGSEGV)
-		printf("%s%s", CRL_RED, PUT_SEGV);
+		double_puts_string(g_fp, CRL_RED, PUT_SEGV, "");
 	else if (result == SIGBUS)
-		printf("%s%s", CRL_RED, PUT_BUSE);
+		double_puts_string(g_fp, CRL_RED, PUT_BUSE, "");
 	else if (result == SIGALRM)
-		printf("%s%s", CRL_RED, PUT_TIMEOUT);
+		double_puts_string(g_fp, CRL_RED, PUT_TIMEOUT, "");
 	else if (result == FORK_FAIL)
-		printf("%s%s", CRL_WHITE, PUT_FORKFAIL);
+		double_puts_string(g_fp, CRL_RED, PUT_FORKFAIL, "");
 	else
-		printf("%s%s", CRL_WHITE, PUT_UNKNOWN);
-	printf("%s\n", CRL_DEFAULT);
+		double_puts_string(g_fp, CRL_RED, PUT_UNKNOWN, "");
+	double_puts_string(g_fp, NULL, "\n", "");
 	return (FAILURE);
 }
 
@@ -91,13 +95,14 @@ static int
 }
 
 int
-	launch_tests(t_unit_test **testlist)
+	launch_tests(t_unit_test **testlist, const char *title)
 {
-	int	ret;
+	int			ret;
 
 	ret = SUCCESS;
 	if (!testlist)
 		return (FAILURE);
+	double_puts_string(g_fp, NULL, title, "\n");
 	ret = launch_tests_imple(testlist);
 	clear_test(testlist);
 	return (ret);

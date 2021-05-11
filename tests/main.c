@@ -4,26 +4,17 @@
 #include "memchr/memchr_tests.h"
 #include "libunit.h"
 
-static void	put_header(void)
-{
-	printf("\n");
-	printf("%s", CRL_CYAN);
-	printf("*********************************\n");
-	printf("**      42 - Unit Tests      ****\n");
-	printf("*********************************\n");
-	printf("%s", CRL_DEFAULT);
-}
-
-int	main(void)
+int			main(void)
 {
 	int	result;
 
-	put_header();
+	start_tests();
 	result = 0;
 	result += strlen_launcher();
 	result += atoi_launcher();
 	result += strdup_launcher();
 	result += memchr_launcher();
+	end_tests();
 	if (result)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
