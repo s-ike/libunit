@@ -39,7 +39,4 @@ fclean:		clean
 
 re:			fclean $(NAME)
 
-debug:		$(OBJS) $(DEBUG_SRCS)
-			$(CC) $(DEBUG) $(OBJS) $(DEBUG_SRCS) -D DEBUG -o $(DEBUG_NAME)
-
-.PHONY:		all clean fclean re debug
+.PHONY:		all clean fclean re
