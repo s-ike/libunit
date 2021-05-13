@@ -1,4 +1,4 @@
-NAME		:= test
+NAME		:= tests
 REPORT_NAME	:= test_report
 
 SRCS		:= main.c \
@@ -58,6 +58,9 @@ all:		$(NAME)
 $(NAME):	$(LIBUNIT_PATH) $(LIBFT_PATH) $(OBJS)
 			$(CC) $(CFLAGS) $(DEBUG) $(LIBUNIT_PATH) $(LIBFT_PATH) $(OBJS) -o $(NAME)
 			@echo $(C_GREEN)"=== make test DONE ==="$(C_DEFAULT)
+
+
+test:		$(NAME)
 			./$(NAME)
 
 $(LIBUNIT_PATH):	## framework

@@ -1,6 +1,6 @@
 # Project file
-test
-test_report
+tests
+tests_report
 
 # General
 .DS_Store
