@@ -19,6 +19,8 @@ int	ft_atoi(char *str)
 	unsigned long long	num;
 	int					neg;
 
+	if (!str)
+		return (0);
 	num = 0;
 	neg = 1;
 	while (ft_isspace(*str))

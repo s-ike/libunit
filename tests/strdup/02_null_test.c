@@ -7,6 +7,8 @@ int	strdup_null_test(void)
 	int			ret;
 
 	s2 = ft_strdup(s1);
+	if (!s2)
+		return (0);
 	ret = strcmp(s1, s2);
 	free(s2);
 	if (ret)
