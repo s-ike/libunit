@@ -17,7 +17,6 @@ void
 	end_tests(void)
 {
 	fclose(g_fp);
-	printf("\n");
 	printf("%s", CRL_CYAN);
 	printf("~~~~~~~~~~~~  fin  ~~~~~~~~~~~~~~\n");
 	printf("%s", CRL_DEFAULT);

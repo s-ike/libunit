@@ -10,7 +10,7 @@ static void
 	else
 		printf("%s", CRL_RED);
 	double_puts_num(g_fp, successes, test_cnt, "tests checked");
-	double_puts_string(g_fp, NULL, "\n", "");
+	double_puts_string(g_fp, NULL, "\n", "\n");
 	printf("%s", CRL_DEFAULT);
 }
 
