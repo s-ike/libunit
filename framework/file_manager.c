@@ -11,6 +11,7 @@ void
 	printf("%s", CRL_DEFAULT);
 	printf("\n");
 	g_fp = fopen("test_report", "w");
+	fflush(stdout);
 }
 
 void
@@ -21,6 +22,7 @@ void
 	printf("~~~~~~~~~~~~  fin  ~~~~~~~~~~~~~~\n");
 	printf("%s", CRL_DEFAULT);
 	printf("\n");
+	fflush(stdout);
 }
 
 void
@@ -33,6 +35,7 @@ void
 	else
 		printf("%s%s", s1, s2);
 	fflush(fp);
+	fflush(stdout);
 }
 
 void
@@ -41,4 +44,5 @@ void
 	fprintf(fp, "%d/%d %s", n1, n2, s);
 	printf("%d/%d %s", n1, n2, s);
 	fflush(fp);
+	fflush(stdout);
 }
